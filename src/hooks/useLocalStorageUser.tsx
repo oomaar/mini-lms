@@ -10,6 +10,7 @@ const STORAGE_KEY = "mini_lms_user";
 
 export function useLocalStorageUser() {
   const [user, setUser] = useState<StoredUser | null>(null);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
@@ -22,6 +23,7 @@ export function useLocalStorageUser() {
         setUser(null);
       }
     }
+    setLoading(false);
   }, []);
 
   const saveUser = useCallback((newUser: StoredUser) => {
@@ -32,8 +34,8 @@ export function useLocalStorageUser() {
   const clearUser = useCallback(() => {
     setUser(null);
     localStorage.removeItem(STORAGE_KEY);
-    router.push("/login");
+    router.replace("/login");
   }, [router]);
 
-  return { user, saveUser, clearUser };
+  return { user, saveUser, clearUser, loading };
 }
