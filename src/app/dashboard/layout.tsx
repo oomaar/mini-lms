@@ -1,8 +1,8 @@
 "use client";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import type { PropsWithChildren, ReactNode } from "react";
-import { useLocalStorageUser } from "@/hooks/useLocalStorageUser";
+import { useState, type PropsWithChildren, type ReactNode } from "react";
+import { Sidebar } from "@/components/Sidebar/Sidebar";
+import { ChildrenMain } from "./styled-layout";
+import { Navbar } from "@/components/Navbar/Navbar";
 
 type DashboardLayoutProps = PropsWithChildren<{
   children: ReactNode;
@@ -11,29 +11,14 @@ type DashboardLayoutProps = PropsWithChildren<{
 export default function DashboardLayout(props: DashboardLayoutProps) {
   const { children } = props;
 
-  const { user, loading } = useLocalStorageUser();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!loading && user === null) {
-      router.replace("/login");
-    }
-  }, [loading, user, router]);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const [showSidebar, setShowSidebar] = useState(false);
+  const toggleSidebar = () => setShowSidebar((prev) => !prev);
 
   return (
     <div>
-      <aside>
-        {/* nav (Courses, Lessons, Logout) */}
-        <div>
-          <p>{user?.username}</p>
-          <p>{user?.userRole}</p>
-        </div>
-      </aside>
-      <main>{children}</main>
+      <Navbar toggleSidebar={toggleSidebar} />
+      <Sidebar showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
+      <ChildrenMain $showSidebar={showSidebar}>{children}</ChildrenMain>
     </div>
   );
 }
