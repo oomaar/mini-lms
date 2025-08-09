@@ -1,0 +1,61 @@
+.inputContainer {
+  width: 90%;
+  position: relative;
+  height: 50px;
+}
+
+.inputErrorText {
+  color: var(--error-color);
+  font-size: 12px;
+  margin: 0px;
+}
+
+.input {
+  background: transparent;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 20px 10px 0 10px;
+  font-size: 18px;
+  outline: none;
+}
+
+.inputLabel {
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  position: absolute;
+  bottom: 1px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.inputLabelErrorState {
+  border: 2px solid var(--error-color);
+}
+
+.labelSpan {
+  position: absolute;
+  bottom: 40%;
+  left: 5px;
+  transition: var(--transition);
+}
+
+.input:focus + .inputLabel {
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+.input:focus + .inputLabelErrorState {
+  border: 2px solid var(--error-color);
+}
+
+.input:focus + .inputLabel .labelSpan,
+.input.filled + .inputLabel .labelSpan {
+  transform: translateY(-70%);
+  color: var(--primary-color);
+  font-size: 12px;
+}
