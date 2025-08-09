@@ -1,0 +1,47 @@
+.loginMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url("/images/lms-bg-login.jpg") top left / cover no-repeat;
+}
+
+.loginFormContainer {
+  background: rgba(0, 0, 0, 0.75);
+  color: #eee;
+  padding: 24px;
+  height: 400px;
+  width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.loginFormContainerHeader {
+  display: grid;
+  justify-items: center;
+  margin-bottom: 24px;
+}
+
+.loginFormContainerHeader h1 {
+  font-size: 48px;
+  margin: 0px;
+}
+
+.loginFormContainerHeader span {
+  font-size: 48px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  height: 70%;
+  padding: 16px 0px;
+}
+
+.loginForm button:last-child {
+  margin-top: auto;
+  width: 90%;
+}
