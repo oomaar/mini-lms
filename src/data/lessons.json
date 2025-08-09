@@ -1,0 +1,242 @@
+[
+  {
+    "id": "lesson-1-1",
+    "courseId": "course-1",
+    "title": "Variables and Data Types",
+    "content": "Understanding variables, constants, and data types in JavaScript."
+  },
+  {
+    "id": "lesson-1-2",
+    "courseId": "course-1",
+    "title": "Functions",
+    "content": "Learn how to define and use functions."
+  },
+  {
+    "id": "lesson-1-3",
+    "courseId": "course-1",
+    "title": "Loops",
+    "content": "Understanding loops and iterations in JavaScript."
+  },
+  {
+    "id": "lesson-2-1",
+    "courseId": "course-2",
+    "title": "HTML Elements",
+    "content": "Learn about headings, paragraphs, and divs."
+  },
+  {
+    "id": "lesson-2-2",
+    "courseId": "course-2",
+    "title": "Links and Images",
+    "content": "Add links and images to your web pages."
+  },
+  {
+    "id": "lesson-3-1",
+    "courseId": "course-3",
+    "title": "Selectors",
+    "content": "Learn how to target elements with CSS selectors."
+  },
+  {
+    "id": "lesson-3-2",
+    "courseId": "course-3",
+    "title": "Box Model",
+    "content": "Understand margins, borders, padding, and content."
+  },
+  {
+    "id": "lesson-3-3",
+    "courseId": "course-3",
+    "title": "Flexbox",
+    "content": "Learn flexible layouts with CSS flexbox."
+  },
+  {
+    "id": "lesson-3-4",
+    "courseId": "course-3",
+    "title": "Grid",
+    "content": "Learn how to use CSS grid for layouts."
+  },
+  {
+    "id": "lesson-4-1",
+    "courseId": "course-4",
+    "title": "Components",
+    "content": "Learn what components are and how to create them."
+  },
+  {
+    "id": "lesson-4-2",
+    "courseId": "course-4",
+    "title": "Props and State",
+    "content": "Manage data in your components."
+  },
+  {
+    "id": "lesson-4-3",
+    "courseId": "course-4",
+    "title": "Events",
+    "content": "Handle user interactions in React."
+  },
+  {
+    "id": "lesson-5-1",
+    "courseId": "course-5",
+    "title": "Setting Up Node.js",
+    "content": "Install and set up Node.js on your machine."
+  },
+  {
+    "id": "lesson-5-2",
+    "courseId": "course-5",
+    "title": "Modules",
+    "content": "Learn about built-in and custom modules."
+  },
+  {
+    "id": "lesson-6-1",
+    "courseId": "course-6",
+    "title": "Relational vs Non-Relational",
+    "content": "Understand different database types."
+  },
+  {
+    "id": "lesson-6-2",
+    "courseId": "course-6",
+    "title": "SQL Basics",
+    "content": "Learn basic SQL commands."
+  },
+  {
+    "id": "lesson-6-3",
+    "courseId": "course-6",
+    "title": "NoSQL Basics",
+    "content": "Introduction to NoSQL databases."
+  },
+  {
+    "id": "lesson-7-1",
+    "courseId": "course-7",
+    "title": "Variables",
+    "content": "Learn how to declare variables in Python."
+  },
+  {
+    "id": "lesson-7-2",
+    "courseId": "course-7",
+    "title": "Control Structures",
+    "content": "If statements, loops, and more."
+  },
+  {
+    "id": "lesson-8-1",
+    "courseId": "course-8",
+    "title": "Git Basics",
+    "content": "Initialize, add, commit."
+  },
+  {
+    "id": "lesson-8-2",
+    "courseId": "course-8",
+    "title": "Branches",
+    "content": "Work with branches in Git."
+  },
+  {
+    "id": "lesson-8-3",
+    "courseId": "course-8",
+    "title": "GitHub Collaboration",
+    "content": "Push, pull, and merge on GitHub."
+  },
+  {
+    "id": "lesson-9-1",
+    "courseId": "course-9",
+    "title": "Types",
+    "content": "Learn basic TypeScript types."
+  },
+  {
+    "id": "lesson-9-2",
+    "courseId": "course-9",
+    "title": "Interfaces",
+    "content": "Create and use interfaces."
+  },
+  {
+    "id": "lesson-10-1",
+    "courseId": "course-10",
+    "title": "Transitions",
+    "content": "Learn how to add transitions."
+  },
+  {
+    "id": "lesson-10-2",
+    "courseId": "course-10",
+    "title": "Animations",
+    "content": "Create animations with CSS."
+  },
+  {
+    "id": "lesson-10-3",
+    "courseId": "course-10",
+    "title": "Custom Properties",
+    "content": "Use CSS variables for reusable styles."
+  },
+  {
+    "id": "lesson-11-1",
+    "courseId": "course-11",
+    "title": "Fetch API",
+    "content": "Use fetch to get data."
+  },
+  {
+    "id": "lesson-11-2",
+    "courseId": "course-11",
+    "title": "Async/Await",
+    "content": "Handle async code cleanly."
+  },
+  {
+    "id": "lesson-12-1",
+    "courseId": "course-12",
+    "title": "Media Queries",
+    "content": "Use media queries to adjust layouts."
+  },
+  {
+    "id": "lesson-12-2",
+    "courseId": "course-12",
+    "title": "Mobile First",
+    "content": "Design for mobile devices first."
+  },
+  {
+    "id": "lesson-12-3",
+    "courseId": "course-12",
+    "title": "Flexible Images",
+    "content": "Make images adapt to screen sizes."
+  },
+  {
+    "id": "lesson-13-1",
+    "courseId": "course-13",
+    "title": "Arrays",
+    "content": "Understand arrays and their methods."
+  },
+  {
+    "id": "lesson-13-2",
+    "courseId": "course-13",
+    "title": "Objects",
+    "content": "Work with key-value pairs in objects."
+  },
+  {
+    "id": "lesson-13-3",
+    "courseId": "course-13",
+    "title": "Maps and Sets",
+    "content": "Learn about ES6 maps and sets."
+  },
+  {
+    "id": "lesson-14-1",
+    "courseId": "course-14",
+    "title": "Console Methods",
+    "content": "Use console.log and other console methods."
+  },
+  {
+    "id": "lesson-14-2",
+    "courseId": "course-14",
+    "title": "Breakpoints",
+    "content": "Debug code using browser dev tools."
+  },
+  {
+    "id": "lesson-15-1",
+    "courseId": "course-15",
+    "title": "XSS Attacks",
+    "content": "Understand cross-site scripting attacks."
+  },
+  {
+    "id": "lesson-15-2",
+    "courseId": "course-15",
+    "title": "CSRF Attacks",
+    "content": "Understand cross-site request forgery."
+  },
+  {
+    "id": "lesson-15-3",
+    "courseId": "course-15",
+    "title": "Best Practices",
+    "content": "Secure your app with best practices."
+  }
+]
