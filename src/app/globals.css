@@ -7,6 +7,7 @@
   --text-color: #8c8e97;
   --border-color: #ecedef;
   --transition: all 0.3s ease;
+  --error-color: #d73f1b;
 }
 
 html,
