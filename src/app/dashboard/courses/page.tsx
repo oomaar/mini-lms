@@ -1,5 +1,6 @@
 "use client";
 import { Loading } from "@/components/Loading/Loading";
+import { ScreenHeader } from "@/components/ScreenHeader/ScreenHeader";
 import { useCourses } from "@/hooks/useCourses/useCourses";
 
 export default function CoursesPage() {
@@ -11,7 +12,7 @@ export default function CoursesPage() {
 
   return (
     <div>
-      <h1>Courses</h1>
+      <ScreenHeader title="Courses" />
       <ul>
         {data?.map((course) => (
           <li key={course.id}>
