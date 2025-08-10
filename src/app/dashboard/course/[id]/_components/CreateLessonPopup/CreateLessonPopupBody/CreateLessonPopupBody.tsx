@@ -21,10 +21,24 @@ export function CreateLessonPopupBody(props: CreateLessonPopupBodyProps) {
     courseId,
   });
 
+  const [formErros, setFormErros] = useState({
+    title: false,
+    content: false,
+  });
+
   const { mutate } = useCreateLesson(courseId);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (lessonDTO.title === "" || lessonDTO.content === "") {
+      setFormErros({
+        title: lessonDTO.title === "",
+        content: lessonDTO.content === "",
+      });
+      return;
+    }
+
     mutate(lessonDTO);
     closePopup();
   };
@@ -37,17 +51,29 @@ export function CreateLessonPopupBody(props: CreateLessonPopupBodyProps) {
           label="Title"
           type="text"
           value={lessonDTO.title}
-          onChange={(e) =>
-            setLessonDTO({ ...lessonDTO, title: e.target.value })
-          }
+          onChange={(e) => {
+            setLessonDTO({ ...lessonDTO, title: e.target.value });
+            setFormErros({ ...formErros, title: false });
+          }}
+          placeholder="Enter lesson title..."
+          errorState={{
+            isError: formErros.title || false,
+            errorMessage: formErros.title ? "Title is required" : "",
+          }}
         />
         <FormInput
           label="Content"
           type="text"
           value={lessonDTO.content}
-          onChange={(e) =>
-            setLessonDTO({ ...lessonDTO, content: e.target.value })
-          }
+          onChange={(e) => {
+            setLessonDTO({ ...lessonDTO, content: e.target.value });
+            setFormErros({ ...formErros, content: false });
+          }}
+          placeholder="Enter lesson content..."
+          errorState={{
+            isError: formErros.content || false,
+            errorMessage: formErros.content ? "Content is required" : "",
+          }}
         />
       </div>
       <PopupFooter>
