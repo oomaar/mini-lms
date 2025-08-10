@@ -59,6 +59,7 @@ export function EditLessonPopupBody(props: EditLessonPopupBodyProps) {
             setLessonDTO({ ...lessonDTO, title: e.target.value });
             setFormErros({ ...formErros, title: false });
           }}
+          placeholder="Enter lesson title..."
           errorState={{
             isError: formErros.title || false,
             errorMessage: formErros.title ? "Title is required" : "",
@@ -72,6 +73,7 @@ export function EditLessonPopupBody(props: EditLessonPopupBodyProps) {
             setLessonDTO({ ...lessonDTO, content: e.target.value });
             setFormErros({ ...formErros, content: false });
           }}
+          placeholder="Enter lesson content..."
           errorState={{
             isError: formErros.content || false,
             errorMessage: formErros.content ? "Content is required" : "",
