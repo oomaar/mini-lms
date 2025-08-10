@@ -2,6 +2,7 @@
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { db } from "./firebase";
 import { Course } from "@/types/Course";
+import { Lesson } from "@/types/Lesson";
 
 export async function fetchCourses(): Promise<Course[]> {
   const snap = await getDocs(collection(db, "courses"));
@@ -31,4 +32,24 @@ export async function fetchCourseById(id: string): Promise<Course> {
     description: snap.data().description as string,
     lessonIds: snap.data().lessonIds as string[],
   };
+}
+
+export async function fetchLessonsByIds(
+  lessonIds: string[]
+): Promise<Lesson[]> {
+  const lessons: Lesson[] = [];
+
+  for (const id of lessonIds) {
+    const ref = doc(db, "lessons", id);
+    const snap = await getDoc(ref);
+
+    if (snap.exists()) {
+      const data = snap.data() as Lesson;
+      lessons.push({
+        ...data,
+      });
+    }
+  }
+
+  return lessons;
 }
