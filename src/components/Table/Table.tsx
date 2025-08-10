@@ -24,13 +24,24 @@ type TableProps = {
   };
   tableHeadings: ReactElement;
   tableRows: ReactElement;
+  subTableDimentions?: {
+    height?: string;
+  };
 };
 
 export function Table(props: TableProps) {
-  const { header, tableHeadings, tableRows, pagination } = props;
+  const {
+    header,
+    tableHeadings,
+    tableRows,
+    pagination,
+    subTableDimentions,
+  } = props;
+
+  const subTableHeight = subTableDimentions?.height;
 
   return (
-    <TableContainer>
+    <TableContainer $height={subTableHeight}>
       <TableHeader
         searchTerm={header.searchTerm}
         onSearch={header.onSearch}
