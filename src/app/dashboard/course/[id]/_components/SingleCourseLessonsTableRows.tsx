@@ -15,8 +15,8 @@ export function SingleCourseLessonsTableRows(
 
   return (
     <>
-      {currentPageLessonDTOs.map((lessonDTO) => (
-        <tr key={lessonDTO.id}>
+      {currentPageLessonDTOs.map((lessonDTO, index) => (
+        <tr key={index}>
           <td>
             <TDContainer $width={200}>
               <TDLink>
