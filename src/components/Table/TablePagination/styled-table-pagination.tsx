@@ -37,17 +37,17 @@ export const TablePaginationButtonsList = styled.ul`
   }
 `;
 
-export const TablePaginationButton = styled.button<{ activePage?: boolean }>`
+export const TablePaginationButton = styled.button<{ $activePage?: boolean }>`
   background: #fff;
   width: 30px;
   height: 30px;
   font-size: ${({ theme }) => theme.typography.fontSize.mdFontSize};
   font-weight: ${({ theme }) => theme.typography.fontWeight.semiBold};
-  color: ${({ theme, activePage }) =>
-    activePage ? theme.colors.primaryColor : theme.colors.textColor};
+  color: ${({ theme, $activePage }) =>
+    $activePage ? theme.colors.primaryColor : theme.colors.textColor};
   border: 1px solid
-    ${({ theme, activePage }) =>
-      activePage ? theme.colors.primaryColor : theme.colors.borderColor};
+    ${({ theme, $activePage }) =>
+      $activePage ? theme.colors.primaryColor : theme.colors.borderColor};
   border-radius: 8px;
   transition: ${transition};
   display: flex;
@@ -81,13 +81,13 @@ export const TablePaginationButton = styled.button<{ activePage?: boolean }>`
     }
 
     @media screen and (max-width: 500px) {
-      background: ${({ theme, activePage }) =>
-        activePage ? theme.colors.primaryColor : "transparent"};
-      color: ${({ theme, activePage }) =>
-        activePage ? theme.colors.whiteTextColor : theme.colors.textColor};
+      background: ${({ theme, $activePage }) =>
+        $activePage ? theme.colors.primaryColor : "transparent"};
+      color: ${({ theme, $activePage }) =>
+        $activePage ? theme.colors.whiteTextColor : theme.colors.textColor};
       border: 1px solid
-        ${({ theme, activePage }) =>
-          activePage ? theme.colors.borderColor : "transparent"};
+        ${({ theme, $activePage }) =>
+          $activePage ? theme.colors.borderColor : "transparent"};
     }
   }
 

@@ -111,7 +111,7 @@ export const TablePagination = (props: TablePaginationProps) => {
           .map((number: number, i) => (
             <li key={i}>
               <TablePaginationButton
-                activePage={currentPage === number}
+                $activePage={currentPage === number}
                 onClick={() => setCurrentPage(number)}
               >
                 {number}
