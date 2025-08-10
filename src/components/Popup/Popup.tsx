@@ -3,12 +3,12 @@ import { PopupBackdrop, PopUpContainer } from "./styled-popup";
 import { ReactPortal } from "../ReactPortal";
 
 type PopupProps = PropsWithChildren<{
-  handleHideModal: () => void;
+  handleHidePopup: () => void;
   showPopup: boolean;
 }>;
 
 export const Popup = (props: PopupProps) => {
-  const { handleHideModal, children, showPopup } = props;
+  const { handleHidePopup, children, showPopup } = props;
 
   useEffect(() => {
     if (showPopup) {
@@ -21,7 +21,7 @@ export const Popup = (props: PopupProps) => {
   return (
     <ReactPortal>
       <PopUpContainer $showPopup={showPopup}>
-        <PopupBackdrop $showPopup={showPopup} onClick={handleHideModal} />
+        <PopupBackdrop $showPopup={showPopup} onClick={handleHidePopup} />
         {children}
       </PopUpContainer>
     </ReactPortal>
