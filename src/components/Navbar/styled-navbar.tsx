@@ -8,7 +8,7 @@ export const NavbarContainer = styled.nav`
   left: ${SidebarWidth};
   height: ${NavbarHeight};
   z-index: 100;
-  background: ${({ theme }) => theme.colors.containerColor};
+  background: #fff;
   box-shadow: ${Shadow};
   display: flex;
   padding: 16px;
