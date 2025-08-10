@@ -53,3 +53,21 @@ export async function fetchLessonsByIds(
 
   return lessons;
 }
+
+export async function fetchLessonById(id: string): Promise<Lesson> {
+  const ref = doc(db, "lessons", id);
+  const snap = await getDoc(ref);
+
+  if (!snap.exists()) {
+    throw new Error(`Lesson with id ${id} not found`);
+  }
+
+  const data = snap.data();
+
+  return {
+    id: snap.id,
+    title: data.title as string,
+    content: data.content as string,
+    courseId: data.courseId as string,
+  };
+}
