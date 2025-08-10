@@ -53,8 +53,9 @@ export async function fetchLessonsByIds(
     const snap = await getDoc(ref);
 
     if (snap.exists()) {
-      const data = snap.data() as Lesson;
+      const data = snap.data() as Omit<Lesson, "id">;
       lessons.push({
+        id: snap.id,
         ...data,
       });
     }
@@ -121,4 +122,12 @@ export async function createLesson(
   });
 
   return { id: ref.id, ...lesson };
+}
+
+export async function updateLesson(
+  lessonId: string,
+  updatedData: Partial<Omit<Lesson, "id">>
+) {
+  const lessonRef = doc(db, "lessons", lessonId);
+  await updateDoc(lessonRef, updatedData);
 }
