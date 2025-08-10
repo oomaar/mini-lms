@@ -4,12 +4,18 @@ import { ScreenHeader } from "@/components/ScreenHeader/ScreenHeader";
 import { Table } from "@/components/Table/Table";
 import { useCourses } from "@/hooks/useCourses/useCourses";
 import { Course } from "@/types/Course";
-import { useMemo, useState } from "react";
+import { use, useMemo, useState } from "react";
 import { CoursesTableHeadings } from "./_components/CoursesTableHeadings";
 import { CoursesTableRows } from "./_components/CoursesTableRows";
+import { AddCoursePopup } from "./_components/AddCoursePopup/AddCoursePopup";
+import { useLocalStorageUser } from "@/hooks/useLocalStorageUser";
 
 export default function CoursesPage() {
   const { data, isLoading } = useCourses();
+
+  const { user } = useLocalStorageUser();
+  const userRole = user?.userRole;
+  const isUserAdmin = userRole === "Admin";
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const courseDTOs: Course[] = data || [];
@@ -55,7 +61,10 @@ export default function CoursesPage() {
 
   return (
     <div>
-      <ScreenHeader title="Courses" />
+      <ScreenHeader
+        title="Courses"
+        buttonElement={isUserAdmin && <AddCoursePopup />}
+      />
       <Table
         header={{
           title: "All Courses",
