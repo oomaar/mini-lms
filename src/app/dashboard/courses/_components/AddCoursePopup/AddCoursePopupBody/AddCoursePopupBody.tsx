@@ -17,11 +17,22 @@ export function AddCoursePopupBody(props: AddCoursePopupBodyProps) {
     description: "",
     lessonIds: [],
   });
+  const [formErros, setFormErros] = useState({
+    title: false,
+    description: false,
+  });
 
   const { mutate } = useCreateCourse();
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (courseDTO.title === "" || courseDTO.description === "") {
+      setFormErros({
+        title: courseDTO.title === "",
+        description: courseDTO.description === "",
+      });
+      return;
+    }
     mutate(courseDTO);
     closePopup();
   };
@@ -37,6 +48,11 @@ export function AddCoursePopupBody(props: AddCoursePopupBodyProps) {
           onChange={(e) =>
             setCourseDTO({ ...courseDTO, title: e.target.value })
           }
+          placeholder="Enter course title..."
+          errorState={{
+            isError: formErros.title || false,
+            errorMessage: formErros.title ? "Title is required" : "",
+          }}
         />
         <FormInput
           label="Description"
@@ -45,6 +61,13 @@ export function AddCoursePopupBody(props: AddCoursePopupBodyProps) {
           onChange={(e) =>
             setCourseDTO({ ...courseDTO, description: e.target.value })
           }
+          placeholder="Enter course description..."
+          errorState={{
+            isError: formErros.description || false,
+            errorMessage: formErros.description
+              ? "Description is required"
+              : "",
+          }}
         />
       </div>
       <PopupFooter>
