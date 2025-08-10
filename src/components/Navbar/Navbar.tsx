@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { ActionsList } from "../ActionsList/ActionsList";
 import { ActionsListListItem } from "../ActionsList/styled-actions-list";
+import Link from "next/link";
 
 type NavbarProps = {
   toggleSidebar: VoidFunction;
@@ -48,6 +49,12 @@ export const Navbar = (props: NavbarProps) => {
           <ActionsListListItem onClick={clearUser}>
             <span className="material-symbols-outlined">logout</span>{" "}
             <p>Logout</p>
+          </ActionsListListItem>
+          <ActionsListListItem>
+            <Link href={`/dashboard/profile`}>
+              <span className="material-symbols-outlined">person</span>{" "}
+              <p>Profile</p>
+            </Link>
           </ActionsListListItem>
         </ActionsList>
       </NavbarUserContainer>
