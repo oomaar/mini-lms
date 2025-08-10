@@ -2,8 +2,9 @@ import { NavbarHeight, Shadow } from "@/styles/theme";
 import styled from "styled-components";
 import { TablePaginationHeight } from "./TablePagination/styled-table-pagination";
 
-export const TableContainer = styled.div`
-  height: calc(100vh - (${NavbarHeight} + 45px + 16px + 45px));
+export const TableContainer = styled.div<{ $height?: string }>`
+  height: ${({ $height }) =>
+    $height ? $height : `calc(100vh - (${NavbarHeight} + 45px + 16px + 45px))`};
   border-radius: 8px;
   box-shadow: ${Shadow};
   display: flex;
