@@ -80,12 +80,12 @@ cd mini-lms`
 - Get your Firebase config object and add it to .env.local (see .env.local)
 
 Example `.env.local`:
-`NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id`
+- NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+- NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+- NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+- NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+- NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+- NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 
 ### Running with Docker
 1️⃣ Build & start the app
@@ -106,6 +106,7 @@ Admin: any username and choose the admin role from the dropdown
 User: any username and choose the user from the dropdown (user is the default)
 
 
+### Project Structure
 - mini-lms/
 - ├── app/                 # Next.js App Router pages
 - │   ├── api/             # seed api, seed data to firestore
