@@ -1,9 +1,10 @@
+import { UserRole } from "@/types/UserRole";
 import { useRouter } from "next/navigation";
 import { useState, useEffect, useCallback } from "react";
 
 type StoredUser = {
   username: string;
-  userRole: string;
+  userRole: UserRole;
 };
 
 const STORAGE_KEY = "mini_lms_user";
