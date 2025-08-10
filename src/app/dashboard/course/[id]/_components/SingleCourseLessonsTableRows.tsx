@@ -3,6 +3,8 @@ import { ActionsListListItem } from "@/components/ActionsList/styled-actions-lis
 import { TDContainer, TDLink, TDText } from "@/components/Table/styled-table";
 import { Lesson } from "@/types/Lesson";
 import Link from "next/link";
+import { EditLessonPopup } from "./EditLessonPopup/EditLessonPopup";
+import { useLocalStorageUser } from "@/hooks/useLocalStorageUser";
 
 type SingleCourseLessonsTableRowsProps = {
   currentPageLessonDTOs: Lesson[];
@@ -12,6 +14,10 @@ export function SingleCourseLessonsTableRows(
   props: SingleCourseLessonsTableRowsProps
 ) {
   const { currentPageLessonDTOs } = props;
+
+  const { user } = useLocalStorageUser();
+  const userRole = user?.userRole;
+  const isUserAdmin = userRole === "Admin";
 
   return (
     <>
@@ -42,6 +48,7 @@ export function SingleCourseLessonsTableRows(
                     View Details
                   </Link>
                 </ActionsListListItem>
+                {isUserAdmin && <EditLessonPopup lessonDTO={lessonDTO} />}
               </ActionsList>
             </TDContainer>
           </td>
