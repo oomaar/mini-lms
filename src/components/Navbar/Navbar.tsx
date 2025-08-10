@@ -2,17 +2,14 @@
 import { useLocalStorageUser } from "@/hooks/useLocalStorageUser";
 import {
   NavbarContainer,
-  NavbarDropdownContainer,
-  NavbarDropdownList,
-  NavbarDropdownListItem,
-  NavbarDropdownToggle,
   NavbarNavigationIcon,
   NavbarUserContainer,
   NavbarUserContainerAvatar,
 } from "./styled-navbar";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { useDropdown } from "../DropdownList/hooks/useDropdown";
+import { ActionsList } from "../ActionsList/ActionsList";
+import { ActionsListListItem } from "../ActionsList/styled-actions-list";
 
 type NavbarProps = {
   toggleSidebar: VoidFunction;
@@ -23,8 +20,6 @@ export const Navbar = (props: NavbarProps) => {
 
   const { user, loading, clearUser } = useLocalStorageUser();
   const router = useRouter();
-
-  const { dropdownContainerRef, showDropdown, toggleDropdown } = useDropdown();
 
   useEffect(() => {
     if (!loading && user === null) {
@@ -49,17 +44,12 @@ export const Navbar = (props: NavbarProps) => {
           <p>{user?.username}</p>
           <p>{user?.userRole}</p>
         </div>
-        <NavbarDropdownContainer ref={dropdownContainerRef}>
-          <NavbarDropdownToggle onClick={toggleDropdown}>
-            <span className="material-symbols-outlined">more_horiz</span>
-          </NavbarDropdownToggle>
-          <NavbarDropdownList $showDropdown={showDropdown}>
-            <NavbarDropdownListItem onClick={clearUser}>
-              <span className="material-symbols-outlined">logout</span>{" "}
-              <p>Logout</p>
-            </NavbarDropdownListItem>
-          </NavbarDropdownList>
-        </NavbarDropdownContainer>
+        <ActionsList>
+          <ActionsListListItem onClick={clearUser}>
+            <span className="material-symbols-outlined">logout</span>{" "}
+            <p>Logout</p>
+          </ActionsListListItem>
+        </ActionsList>
       </NavbarUserContainer>
     </NavbarContainer>
   );
