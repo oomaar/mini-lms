@@ -1,3 +1,5 @@
+import { ActionsList } from "@/components/ActionsList/ActionsList";
+import { ActionsListListItem } from "@/components/ActionsList/styled-actions-list";
 import { TDContainer, TDLink, TDText } from "@/components/Table/styled-table";
 import { Course } from "@/types/Course";
 import Link from "next/link";
@@ -16,7 +18,9 @@ export default function CoursesTableRows(props: CoursesTableRowsProps) {
           <td>
             <TDContainer $width={200}>
               <TDLink>
-                <Link href={``}>{courseDTO.title}</Link>
+                <Link href={`/dashboard/course/${courseDTO.id}`}>
+                  {courseDTO.title}
+                </Link>
               </TDLink>
             </TDContainer>
           </td>
@@ -32,7 +36,16 @@ export default function CoursesTableRows(props: CoursesTableRowsProps) {
           </td>
           <td>
             <TDContainer $width={100}>
-              <span className="material-symbols-outlined">more_horiz</span>
+              <ActionsList width="150px">
+                <ActionsListListItem>
+                  <Link href={`/dashboard/course/${courseDTO.id}`}>
+                    <span className="material-symbols-outlined">
+                      visibility
+                    </span>
+                    View Details
+                  </Link>
+                </ActionsListListItem>
+              </ActionsList>
             </TDContainer>
           </td>
         </tr>
