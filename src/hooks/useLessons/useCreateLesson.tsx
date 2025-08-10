@@ -8,7 +8,7 @@ export const useCreateLesson = (courseId: string) => {
   return useMutation({
     mutationFn: (lesson: Omit<Lesson, "id">) => createLesson(lesson),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["course", courseId] });
+      queryClient.invalidateQueries({ queryKey: ["courses", courseId] });
       queryClient.invalidateQueries({ queryKey: ["lessons", courseId] });
     },
   });
