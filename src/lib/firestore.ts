@@ -1,6 +1,7 @@
 // lib/firestore.ts (client helpers)
 import {
   addDoc,
+  arrayUnion,
   collection,
   deleteDoc,
   doc,
@@ -103,3 +104,21 @@ export const deleteCourse = async (id: string) => {
   await deleteDoc(courseRef);
   return id;
 };
+
+export async function createLesson(
+  lesson: Omit<Lesson, "id">
+): Promise<Lesson> {
+  const lessonsCol = collection(db, "lessons");
+  const ref = await addDoc(lessonsCol, {
+    courseId: lesson.courseId,
+    title: lesson.title,
+    content: lesson.content,
+  });
+
+  const courseRef = doc(db, "courses", lesson.courseId);
+  await updateDoc(courseRef, {
+    lessonIds: arrayUnion(ref.id),
+  });
+
+  return { id: ref.id, ...lesson };
+}
