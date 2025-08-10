@@ -14,8 +14,11 @@ export const ActionsListToggle = styled.button`
   color: ${({ theme }) => theme.colors.textColor};
 `;
 
-export const ActionsListList = styled.ul<{ $showDropdown: boolean }>`
-  width: 100px;
+export const ActionsListList = styled.ul<{
+  $showDropdown: boolean;
+  $width?: string;
+}>`
+  width: ${({ $width }) => ($width ? `${$width}` : "100px")};
   position: absolute;
   right: 0px;
   top: 20px;
@@ -25,6 +28,7 @@ export const ActionsListList = styled.ul<{ $showDropdown: boolean }>`
   height: fit-content;
   max-height: ${({ $showDropdown }) => ($showDropdown ? "60px" : "0px")};
   overflow-y: auto;
+  z-index: 100;
   overflow: ${({ $showDropdown }) => ($showDropdown ? "visible" : "hidden")};
   opacity: ${({ $showDropdown }) => ($showDropdown ? "1" : "0")};
 `;
@@ -37,6 +41,12 @@ export const ActionsListListItem = styled.li`
   padding: 4px;
   color: ${({ theme }) => theme.colors.textColor};
   transition: ${transition};
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0px 8px;
+  }
 
   &:hover {
     background: ${({ theme }) => theme.colors.primaryColor};
