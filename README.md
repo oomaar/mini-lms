@@ -106,7 +106,7 @@ Admin: any username and choose the admin role from the dropdown
 User: any username and choose the user from the dropdown (user is the default)
 
 
-mini-lms/
+`mini-lms/
 ├── app/                 # Next.js App Router pages
 │   ├── api/             # seed api, seed data to firestore
 │   ├── login/           # Login page
@@ -122,7 +122,7 @@ mini-lms/
 ├── Dockerfile           # Docker image build instructions
 ├── docker-compose.yml   # Docker Compose setup
 ├── .env.local         # Example env variables
-└── README.md
+└── README.md`
 
 ### License
 This project is for educational/demo purposes.
