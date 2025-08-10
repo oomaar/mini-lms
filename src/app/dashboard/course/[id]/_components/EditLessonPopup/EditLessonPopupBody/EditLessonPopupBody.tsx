@@ -4,7 +4,7 @@ import { PopupForm } from "@/components/Popup/components/PopupForm/PopupForm";
 import { PopupHeader } from "@/components/Popup/components/PopupHeader/PopupHeader";
 import { PopupFooter } from "@/components/Popup/styled-popup";
 import { Button } from "@/styles/Button";
-import { FormEvent, useCallback } from "react";
+import { FormEvent, useCallback, useState } from "react";
 import { useUpdateLesson } from "@/hooks/useLessons/useUpdateLesson";
 import { useEditLessonPopup } from "../context/EditLessonPopupContext";
 
@@ -16,12 +16,25 @@ export function EditLessonPopupBody(props: EditLessonPopupBodyProps) {
   const { closePopup } = props;
 
   const { mutate: updateLesson } = useUpdateLesson();
-
   const { lessonDTO, setLessonDTO } = useEditLessonPopup();
+
+  const [formErros, setFormErros] = useState({
+    title: false,
+    content: false,
+  });
 
   const onSubmit = useCallback(
     (e: FormEvent) => {
       e.preventDefault();
+
+      if (lessonDTO.title === "" || lessonDTO.content === "") {
+        setFormErros({
+          title: lessonDTO.title === "",
+          content: lessonDTO.content === "",
+        });
+        return;
+      }
+
       updateLesson({
         lessonId: lessonDTO.id,
         updatedData: lessonDTO,
@@ -42,17 +55,27 @@ export function EditLessonPopupBody(props: EditLessonPopupBodyProps) {
           label="Title"
           type="text"
           value={lessonDTO.title}
-          onChange={(e) =>
-            setLessonDTO({ ...lessonDTO, title: e.target.value })
-          }
+          onChange={(e) => {
+            setLessonDTO({ ...lessonDTO, title: e.target.value });
+            setFormErros({ ...formErros, title: false });
+          }}
+          errorState={{
+            isError: formErros.title || false,
+            errorMessage: formErros.title ? "Title is required" : "",
+          }}
         />
         <FormInput
           label="Content"
           type="text"
           value={lessonDTO.content}
-          onChange={(e) =>
-            setLessonDTO({ ...lessonDTO, content: e.target.value })
-          }
+          onChange={(e) => {
+            setLessonDTO({ ...lessonDTO, content: e.target.value });
+            setFormErros({ ...formErros, content: false });
+          }}
+          errorState={{
+            isError: formErros.content || false,
+            errorMessage: formErros.content ? "Content is required" : "",
+          }}
         />
       </div>
       <PopupFooter>
