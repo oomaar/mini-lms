@@ -8,7 +8,7 @@ type CoursesTableRowsProps = {
   currentPageCourseDTOs: Course[];
 };
 
-export default function CoursesTableRows(props: CoursesTableRowsProps) {
+export function CoursesTableRows(props: CoursesTableRowsProps) {
   const { currentPageCourseDTOs } = props;
 
   return (

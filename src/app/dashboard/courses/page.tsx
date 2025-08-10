@@ -6,7 +6,7 @@ import { useCourses } from "@/hooks/useCourses/useCourses";
 import { Course } from "@/types/Course";
 import { useMemo, useState } from "react";
 import { CoursesTableHeadings } from "./_components/CoursesTableHeadings";
-import CoursesTableRows from "./_components/CoursesTableRows";
+import { CoursesTableRows } from "./_components/CoursesTableRows";
 
 export default function CoursesPage() {
   const { data, isLoading } = useCourses();
