@@ -4,7 +4,7 @@ import { fetchLessonById } from "@/lib/firestore";
 
 export function useLessonById(id: string) {
   return useQuery<Lesson>({
-    queryKey: ["lesson", id],
+    queryKey: ["lessons", id],
     queryFn: () => fetchLessonById(id),
     enabled: !!id,
   });
