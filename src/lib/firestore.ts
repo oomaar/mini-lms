@@ -1,5 +1,6 @@
 // lib/firestore.ts (client helpers)
 import {
+  addDoc,
   collection,
   doc,
   getDoc,
@@ -84,4 +85,12 @@ export async function updateCourseById(
 ): Promise<void> {
   const ref = doc(db, "courses", id);
   await updateDoc(ref, updatedData);
+}
+
+export async function createCourse(
+  newCourseData: Omit<Course, "id">
+): Promise<string> {
+  const colRef = collection(db, "courses");
+  const docRef = await addDoc(colRef, newCourseData);
+  return docRef.id;
 }
