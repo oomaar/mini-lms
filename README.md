@@ -106,23 +106,23 @@ Admin: any username and choose the admin role from the dropdown
 User: any username and choose the user from the dropdown (user is the default)
 
 
-`mini-lms/
-├── app/                 # Next.js App Router pages
-│   ├── api/             # seed api, seed data to firestore
-│   ├── login/           # Login page
-│   ├── dashboard/       # Protected dashboard pages
-│   └── ...
-├── components/          # Reusable UI components
-├── data/                # Static Generated JSON files to help seed data into Firestore
-├── hooks/               # Custom React hooks
-├── lib/                 # Firebase & Firestore helper functions
-├── types/               # TypeScript types
-├── styles/              # styled-components theme & styles
-├── public/              # Static assets
-├── Dockerfile           # Docker image build instructions
-├── docker-compose.yml   # Docker Compose setup
-├── .env.local         # Example env variables
-└── README.md`
+- mini-lms/
+- ├── app/                 # Next.js App Router pages
+- │   ├── api/             # seed api, seed data to firestore
+- │   ├── login/           # Login page
+- │   ├── dashboard/       # Protected dashboard pages
+- │   └── ...
+- ├── components/          # Reusable UI components
+- ├── data/                # Static Generated JSON files to help seed data into Firestore
+- ├── hooks/               # Custom React hooks
+- ├── lib/                 # Firebase & Firestore helper functions
+- ├── types/               # TypeScript types
+- ├── styles/              # styled-components theme & styles
+- ├── public/              # Static assets
+- ├── Dockerfile           # Docker image build instructions
+- ├── docker-compose.yml   # Docker Compose setup
+- ├── .env.local         # Example env variables
+- └── README.md`
 
 ### License
 This project is for educational/demo purposes.
