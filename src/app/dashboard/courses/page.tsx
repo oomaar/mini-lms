@@ -1,16 +1,26 @@
 "use client";
-
-import { useLocalStorageUser } from "@/hooks/useLocalStorageUser";
+import { Loading } from "@/components/Loading/Loading";
+import { useCourses } from "@/hooks/useCourses/useCourses";
 
 export default function CoursesPage() {
-  const { clearUser } = useLocalStorageUser();
+  const { data, isLoading } = useCourses();
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div>
       <h1>Courses</h1>
-      <button className="button" style={{ width: "300px" }} onClick={clearUser}>
-        Logout
-      </button>
+      <ul>
+        {data?.map((course) => (
+          <li key={course.id}>
+            <h2>{course.title}</h2>
+            <p>{course.description}</p>
+            <p>Lessons: {course.lessonIds.join(", ")}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
