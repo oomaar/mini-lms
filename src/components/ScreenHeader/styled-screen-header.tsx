@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const ScreenHeaderContainer = styled.div`
   padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   p {
     font-size: ${({ theme }) => theme.typography.fontSize.lgFontSize};
