@@ -10,7 +10,6 @@ import { useEditLessonPopup } from "../context/EditLessonPopupContext";
 
 type EditLessonPopupBodyProps = {
   closePopup: VoidFunction;
-  courseId: string;
 };
 
 export function EditLessonPopupBody(props: EditLessonPopupBodyProps) {

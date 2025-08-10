@@ -7,11 +7,10 @@ import { EditLessonPopupProvider } from "./context/EditLessonPopupContext";
 
 type EditLessonPopupProps = {
   lessonDTO: Lesson;
-  courseId: string;
 };
 
 export function EditLessonPopup(props: EditLessonPopupProps) {
-  const { lessonDTO, courseId } = props;
+  const { lessonDTO } = props;
 
   const {
     closePopup,
@@ -26,11 +25,7 @@ export function EditLessonPopup(props: EditLessonPopupProps) {
         <span className="material-symbols-outlined">edit</span>Edit
       </ActionsListListItem>
       <Popup showPopup={isPopupOpen} handleHidePopup={closePopup}>
-        <EditLessonPopupBody
-          key={popupBodyKey}
-          closePopup={closePopup}
-          courseId={courseId}
-        />
+        <EditLessonPopupBody key={popupBodyKey} closePopup={closePopup} />
       </Popup>
     </EditLessonPopupProvider>
   );
