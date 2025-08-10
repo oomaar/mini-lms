@@ -54,9 +54,10 @@ export function EditCoursePopupBody(props: EditCoursePopupBodyProps) {
           label="Title"
           type="text"
           value={courseDTO.title}
-          onChange={(e) =>
-            setCourseDTO({ ...courseDTO, title: e.target.value })
-          }
+          onChange={(e) => {
+            setCourseDTO({ ...courseDTO, title: e.target.value });
+            setFormErros({ ...formErros, title: false });
+          }}
           errorState={{
             isError: formErros.title || false,
             errorMessage: formErros.title ? "Title is required" : "",
@@ -66,9 +67,10 @@ export function EditCoursePopupBody(props: EditCoursePopupBodyProps) {
           label="Description"
           type="text"
           value={courseDTO.description}
-          onChange={(e) =>
-            setCourseDTO({ ...courseDTO, description: e.target.value })
-          }
+          onChange={(e) => {
+            setCourseDTO({ ...courseDTO, description: e.target.value });
+            setFormErros({ ...formErros, description: false });
+          }}
           errorState={{
             isError: formErros.description || false,
             errorMessage: formErros.description

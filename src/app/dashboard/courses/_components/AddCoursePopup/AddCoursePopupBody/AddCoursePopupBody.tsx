@@ -45,9 +45,10 @@ export function AddCoursePopupBody(props: AddCoursePopupBodyProps) {
           label="Title"
           type="text"
           value={courseDTO.title}
-          onChange={(e) =>
-            setCourseDTO({ ...courseDTO, title: e.target.value })
-          }
+          onChange={(e) => {
+            setCourseDTO({ ...courseDTO, title: e.target.value });
+            setFormErros({ ...formErros, title: false });
+          }}
           placeholder="Enter course title..."
           errorState={{
             isError: formErros.title || false,
@@ -58,9 +59,10 @@ export function AddCoursePopupBody(props: AddCoursePopupBodyProps) {
           label="Description"
           type="text"
           value={courseDTO.description}
-          onChange={(e) =>
-            setCourseDTO({ ...courseDTO, description: e.target.value })
-          }
+          onChange={(e) => {
+            setCourseDTO({ ...courseDTO, description: e.target.value });
+            setFormErros({ ...formErros, description: false });
+          }}
           placeholder="Enter course description..."
           errorState={{
             isError: formErros.description || false,
