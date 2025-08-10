@@ -26,20 +26,21 @@ export const ActionsListList = styled.ul<{
   background: #fff;
   box-shadow: ${Shadow};
   height: fit-content;
-  max-height: ${({ $showDropdown }) => ($showDropdown ? "60px" : "0px")};
+  max-height: ${({ $showDropdown }) => ($showDropdown ? "150px" : "0px")};
   overflow-y: auto;
   z-index: 100;
   overflow: ${({ $showDropdown }) => ($showDropdown ? "visible" : "hidden")};
   opacity: ${({ $showDropdown }) => ($showDropdown ? "1" : "0")};
 `;
 
-export const ActionsListListItem = styled.li`
+export const ActionsListListItem = styled.li<{ $danger?: boolean }>`
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0px 8px;
   padding: 4px;
-  color: ${({ theme }) => theme.colors.textColor};
+  color: ${({ theme, $danger }) =>
+    $danger ? theme.colors.danger : theme.colors.textColor};
   transition: ${transition};
 
   a {
