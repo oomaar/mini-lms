@@ -1,5 +1,11 @@
 // lib/firestore.ts (client helpers)
-import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  updateDoc,
+} from "firebase/firestore";
 import { db } from "./firebase";
 import { Course } from "@/types/Course";
 import { Lesson } from "@/types/Lesson";
@@ -70,4 +76,12 @@ export async function fetchLessonById(id: string): Promise<Lesson> {
     content: data.content as string,
     courseId: data.courseId as string,
   };
+}
+
+export async function updateCourseById(
+  id: string,
+  updatedData: Partial<Omit<Course, "id">>
+): Promise<void> {
+  const ref = doc(db, "courses", id);
+  await updateDoc(ref, updatedData);
 }
