@@ -12,7 +12,7 @@ export const Shadow = `0px 12px 16px -4px rgba(16, 24, 40, 0.08),
 export const theme: DefaultTheme = {
   colors: {
     primaryColor: `#3c9eff`,
-    titleColor: `#040415`,
+    titleColor: `#393b41`,
     textColor: `#8c8e97`,
     whiteTextColor: `#ffffff`,
     inputColor: `#f4f5f7`,
