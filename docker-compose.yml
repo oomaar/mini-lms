@@ -1,0 +1,12 @@
+services:
+  lms-frontend:
+    build: .
+    container_name: lms-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
