@@ -4,7 +4,7 @@ import { ScreenHeader } from "@/components/ScreenHeader/ScreenHeader";
 import { Table } from "@/components/Table/Table";
 import { useCourses } from "@/hooks/useCourses/useCourses";
 import { Course } from "@/types/Course";
-import { use, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { CoursesTableHeadings } from "./_components/CoursesTableHeadings";
 import { CoursesTableRows } from "./_components/CoursesTableRows";
 import { AddCoursePopup } from "./_components/AddCoursePopup/AddCoursePopup";
