@@ -5,6 +5,7 @@ import { Course } from "@/types/Course";
 import Link from "next/link";
 import { EditCoursePopup } from "./EditCoursePopup/EditCoursePopup";
 import { useLocalStorageUser } from "@/hooks/useLocalStorageUser";
+import { DeleteCoursePopup } from "./DeleteCoursePopup/DeleteCoursePopup";
 
 type CoursesTableRowsProps = {
   currentPageCourseDTOs: Course[];
@@ -52,6 +53,7 @@ export function CoursesTableRows(props: CoursesTableRowsProps) {
                   </Link>
                 </ActionsListListItem>
                 {isUserAdmin && <EditCoursePopup courseDTO={courseDTO} />}
+                {isUserAdmin && <DeleteCoursePopup courseDTO={courseDTO} />}
               </ActionsList>
             </TDContainer>
           </td>
