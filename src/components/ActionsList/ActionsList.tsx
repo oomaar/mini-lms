@@ -8,10 +8,11 @@ import {
 
 type ActionsListProps = PropsWithChildren<{
   children: ReactNode;
+  width?: string;
 }>;
 
 export function ActionsList(props: ActionsListProps) {
-  const { children } = props;
+  const { children, width } = props;
 
   const { showDropdown, toggleDropdown, dropdownContainerRef } = useDropdown();
 
@@ -20,7 +21,9 @@ export function ActionsList(props: ActionsListProps) {
       <ActionsListToggle onClick={toggleDropdown}>
         <span className="material-symbols-outlined">more_horiz</span>
       </ActionsListToggle>
-      <ActionsListList $showDropdown={showDropdown}>{children}</ActionsListList>
+      <ActionsListList $showDropdown={showDropdown} $width={width}>
+        {children}
+      </ActionsListList>
     </ActionsListContainer>
   );
 }
