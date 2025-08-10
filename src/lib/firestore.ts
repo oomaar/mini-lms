@@ -2,6 +2,7 @@
 import {
   addDoc,
   collection,
+  deleteDoc,
   doc,
   getDoc,
   getDocs,
@@ -94,3 +95,11 @@ export async function createCourse(
   const docRef = await addDoc(colRef, newCourseData);
   return docRef.id;
 }
+
+export const deleteCourse = async (id: string) => {
+  if (!id) throw new Error("Course ID is required");
+
+  const courseRef = doc(db, "courses", id);
+  await deleteDoc(courseRef);
+  return id;
+};
